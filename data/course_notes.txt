@@ -1,0 +1,11 @@
+Machine learning is a field of artificial intelligence where computers learn patterns from data.
+
+Supervised learning uses labeled data to train models. Examples include classification and regression.
+
+Gradient descent is an optimization algorithm used to minimize the loss function by updating model parameters step by step.
+
+Neural networks are machine learning models inspired by the human brain. They contain layers of connected neurons.
+
+The final assignment deadline is May 20. Late submissions will have a 10 percent penalty.
+
+The grading policy is 40 percent assignments, 30 percent midterm, 20 percent final exam, and 10 percent participation.
