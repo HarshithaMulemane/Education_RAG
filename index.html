@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Agent Education RAG</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      padding: 80px 0 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #111827, #1e293b);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero-buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-secondary {
+      border: 1px solid #475569;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #1e293b;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-description {
+      text-align: center;
+      color: #cbd5e1;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      padding: 28px;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #2563eb;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      font-size: 0.96rem;
+    }
+
+    .architecture {
+      background: #111827;
+      border-radius: 20px;
+      padding: 40px;
+      overflow-x: auto;
+      border: 1px solid #1e293b;
+    }
+
+    pre {
+      color: #93c5fd;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .tag {
+      background: #1e293b;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      border: 1px solid #334155;
+    }
+
+    .demo-box {
+      background: #111827;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    .demo-box code {
+      display: block;
+      background: #020617;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 16px;
+      color: #93c5fd;
+      overflow-x: auto;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid #1e293b;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="badge">LangGraph + Multi-Agent RAG + Education AI</div>
+
+      <h1>🎓 Multi-Agent Education RAG</h1>
+
+      <p class="subtitle">
+        A production-style conversational RAG system built using LangGraph, FastAPI, FAISS, BM25, Streamlit, and OpenAI.
+        The system supports conversational memory, query rewriting, hybrid retrieval, grounded generation, verification, and evaluation.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://github.com/your-username/your-repo" class="btn btn-primary">View GitHub Repository</a>
+        <a href="#architecture" class="btn btn-secondary">View Architecture</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2>✨ Key Features</h2>
+      <p class="section-description">
+        This project demonstrates a full conversational multi-agent RAG pipeline with grounding, evaluation, and observability.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>🧠 Query Rewriting</h3>
+          <p>
+            Converts follow-up conversational questions into standalone retrieval-ready queries.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>🔀 Multi-Agent Workflow</h3>
+          <p>
+            Uses LangGraph agents for routing, retrieval, generation, quiz creation, and verification.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>🔍 Hybrid Retrieval</h3>
+          <p>
+            Combines FAISS semantic search and BM25 keyword retrieval for better accuracy.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>✅ Grounded Generation</h3>
+          <p>
+            Generates answers strictly from retrieved educational content to reduce hallucinations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>📊 Confidence Scoring</h3>
+          <p>
+            Exposes retrieval similarity scores and qualitative confidence labels.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>🧪 Evaluation Pipeline</h3>
+          <p>
+            Includes verifier-agent evaluation inspired by RAGAS, DeepEval, and LLM-as-a-judge approaches.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture">
+    <div class="container">
+      <h2>🏗️ System Architecture</h2>
+      <p class="section-description">
+        End-to-end conversational multi-agent RAG workflow.
+      </p>
+
+      <div class="architecture">
+<pre>
+User Question
+      │
+      ▼
+Query Rewriter Agent
+      │
+      ▼
+Router Agent
+      │
+      ▼
+Hybrid Retriever
+ ┌───────────────┬───────────────┐
+ │               │               │
+ ▼               ▼               ▼
+FAISS       BM25 Search     Retrieved Chunks
+Semantic
+Search
+      │
+      ▼
+Answer Agent / Quiz Agent
+      │
+      ▼
+Verifier Agent
+      │
+      ▼
+Confidence + Sources + Response
+</pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>⚙️ Tech Stack</h2>
+      <p class="section-description">
+        Technologies used to build the project.
+      </p>
+
+      <div class="tech-stack">
+        <div class="tag">Python</div>
+        <div class="tag">LangGraph</div>
+        <div class="tag">LangChain</div>
+        <div class="tag">OpenAI</div>
+        <div class="tag">FastAPI</div>
+        <div class="tag">FAISS</div>
+        <div class="tag">BM25</div>
+        <div class="tag">Streamlit</div>
+        <div class="tag">RAG</div>
+        <div class="tag">LLM Evaluation</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>💬 Example API Response</h2>
+      <p class="section-description">
+        Example grounded response generated by the system.
+      </p>
+
+      <div class="demo-box">
+        <code>
+{
+  "question": "Explain gradient descent",
+  "route": "concept",
+  "answer": "Gradient descent is an optimization algorithm used to minimize the loss function by updating model parameters step by step.",
+  "verified": true,
+  "confidence": "high",
+  "retrieval_scores": [0.36, 0.42]
+}
+        </code>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>🚀 Demo Flow</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>1️⃣ Concept QA</h3>
+          <p>
+            Explain gradient descent.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>2️⃣ Conversational Memory</h3>
+          <p>
+            Explain it in simple terms.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>3️⃣ Policy Retrieval</h3>
+          <p>
+            What is the grading policy?
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>4️⃣ Quiz Generation</h3>
+          <p>
+            Create quiz questions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>
+        Built with ❤️ using LangGraph, FastAPI, FAISS, BM25, Streamlit, and OpenAI.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
